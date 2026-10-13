@@ -1,0 +1,7 @@
+# robots.txt for goldensandsbullion.com
+User-agent: *
+Allow: /
+Disallow: /data/
+
+# Sitemaps
+Sitemap: https://goldensandsbullion.com/sitemap.xml

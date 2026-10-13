@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Royal Dubai 24K Gold Gradients -->
+    <linearGradient id="goldPrime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8D6"/>
+      <stop offset="25%" stop-color="#E5C158"/>
+      <stop offset="55%" stop-color="#C69528"/>
+      <stop offset="80%" stop-color="#E2B748"/>
+      <stop offset="100%" stop-color="#8C5F09"/>
+    </linearGradient>
+
+    <linearGradient id="goldLuster" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF2"/>
+      <stop offset="40%" stop-color="#F2D175"/>
+      <stop offset="80%" stop-color="#B8861B"/>
+      <stop offset="100%" stop-color="#694503"/>
+    </linearGradient>
+
+    <linearGradient id="goldShineFacet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFEAA3"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#D9A834"/>
+    </linearGradient>
+
+    <!-- Islamic Royal Jade / Emerald Sheen -->
+    <radialGradient id="islamicEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0A5C3D"/>
+      <stop offset="45%" stop-color="#053B27"/>
+      <stop offset="85%" stop-color="#022116"/>
+      <stop offset="100%" stop-color="#01130C"/>
+    </radialGradient>
+
+    <!-- Onyx-Jade Base Disc -->
+    <radialGradient id="discBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#122019"/>
+      <stop offset="65%" stop-color="#08100C"/>
+      <stop offset="100%" stop-color="#030504"/>
+    </radialGradient>
+
+    <!-- Filter for Soft Precious Glow -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Base Medallion -->
+  <circle cx="128" cy="128" r="122" fill="url(#discBg)" stroke="url(#goldPrime)" stroke-width="2.5"/>
+  <circle cx="128" cy="128" r="116" fill="none" stroke="url(#goldLuster)" stroke-width="0.9" stroke-dasharray="2,3"/>
+  <circle cx="128" cy="128" r="111" fill="none" stroke="url(#goldPrime)" stroke-width="1.4"/>
+
+  <!-- Classical 8-Pointed Islamic Star (Rub el Hizb Geometry) -->
+  <g transform="translate(128, 128)">
+
+    <!-- Outer Arabesque 16-Point Interlocking Facets -->
+    <!-- Square 1 (0 deg) -->
+    <rect x="-76" y="-76" width="152" height="152" rx="3" fill="none" stroke="url(#goldPrime)" stroke-width="2.2"/>
+    <!-- Square 2 (45 deg) -->
+    <rect x="-76" y="-76" width="152" height="152" rx="3" transform="rotate(45)" fill="none" stroke="url(#goldLuster)" stroke-width="2.2"/>
+
+    <!-- 8 Outer Triangular Star Jewels -->
+    <!-- North -->
+    <polygon points="0,-106 18,-76 0,-62 -18,-76" fill="url(#goldPrime)"/>
+    <polygon points="0,-106 0,-62 -18,-76" fill="url(#goldLuster)" opacity="0.6"/>
+    <!-- South -->
+    <polygon points="0,106 18,76 0,62 -18,76" fill="url(#goldPrime)"/>
+    <polygon points="0,106 0,62 -18,76" fill="url(#goldLuster)" opacity="0.6"/>
+    <!-- East -->
+    <polygon points="106,0 76,18 62,0 76,-18" fill="url(#goldPrime)"/>
+    <polygon points="106,0 62,0 76,-18" fill="url(#goldLuster)" opacity="0.6"/>
+    <!-- West -->
+    <polygon points="-106,0 -76,18 -62,0 -76,-18" fill="url(#goldPrime)"/>
+    <polygon points="-106,0 -62,0 -76,-18" fill="url(#goldLuster)" opacity="0.6"/>
+
+    <!-- Diagonal Jewels (rotated 45 deg) -->
+    <g transform="rotate(45)">
+      <polygon points="0,-106 18,-76 0,-62 -18,-76" fill="url(#goldPrime)"/>
+      <polygon points="0,-106 0,-62 -18,-76" fill="url(#goldLuster)" opacity="0.6"/>
+      <polygon points="0,106 18,76 0,62 -18,76" fill="url(#goldPrime)"/>
+      <polygon points="0,106 0,62 -18,76" fill="url(#goldLuster)" opacity="0.6"/>
+      <polygon points="106,0 76,18 62,0 76,-18" fill="url(#goldPrime)"/>
+      <polygon points="106,0 62,0 76,-18" fill="url(#goldLuster)" opacity="0.6"/>
+      <polygon points="-106,0 -76,18 -62,0 -76,-18" fill="url(#goldPrime)"/>
+      <polygon points="-106,0 -62,0 -76,-18" fill="url(#goldLuster)" opacity="0.6"/>
+    </g>
+
+    <!-- Interlocking Arabesque Circle Borders -->
+    <circle cx="0" cy="0" r="74" fill="none" stroke="url(#goldPrime)" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="0" cy="0" r="68" fill="none" stroke="url(#goldLuster)" stroke-width="1" stroke-dasharray="4,2.5"/>
+
+    <!-- Inner Emerald Core Medallion -->
+    <circle cx="0" cy="0" r="62" fill="url(#islamicEmerald)" stroke="url(#goldPrime)" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="57" fill="none" stroke="url(#goldShineFacet)" stroke-width="0.8" opacity="0.75"/>
+
+    <!-- Geometric Rosette Lattice Rings -->
+    <circle cx="0" cy="0" r="46" fill="none" stroke="url(#goldPrime)" stroke-width="1.2" opacity="0.5"/>
+
+    <!-- 8-Point Rosette Star Outline inside Emerald -->
+    <path d="M0,-45 L9,-22 L32,-32 L22,-9 L45,0 L22,9 L32,32 L9,22 L0,45 L-9,22 L-32,32 L-22,9 L-45,0 L-22,-9 L-32,-32 L-9,-22 Z" 
+          fill="none" stroke="url(#goldPrime)" stroke-width="1.2" opacity="0.85"/>
+
+    <!-- Centerpiece: Regal Pure Gold Ingot (Clean, Elegant 3D Silhouette) -->
+    <!-- Ingot Drop Shadow -->
+    <path d="M -26 -17 L 26 -17 L 32 17 L -32 17 Z" fill="rgba(0,0,0,0.6)" transform="translate(0, 3)"/>
+    <!-- Ingot Bevel Outer -->
+    <path d="M -26 -17 L 26 -17 L 32 17 L -32 17 Z" fill="url(#goldPrime)" stroke="#4A3405" stroke-width="1"/>
+    <!-- Ingot Raised Face -->
+    <path d="M -22 -13 L 22 -13 L 27 13 L -27 13 Z" fill="url(#goldLuster)"/>
+    <!-- High-Sheen Top Edge Refraction -->
+    <polygon points="-22,-13 6,-13 -4,13 -27,13" fill="#FFFDF0" opacity="0.45"/>
+    <line x1="-22" y1="-13" x2="22" y2="-13" stroke="#FFFFFF" stroke-width="1" opacity="0.9"/>
+
+    <!-- Clean Islamic Arch / Crescent Accents on Ingot -->
+    <path d="M -16 6 C -8 -2, 8 -2, 16 6" fill="none" stroke="#523908" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Center Ingot Diamond Hallmark -->
+    <polygon points="0,-5 4,0 0,5 -4,0" fill="#3D2903"/>
+    <circle cx="0" cy="0" r="1.5" fill="#FFF5CD"/>
+  </g>
+</svg>
