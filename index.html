@@ -63,6 +63,10 @@
 
   <!-- Critical Resource Preloads -->
   <link rel="preload" as="image" href="./assets/images/hero-gold-bar-velvet.webp" type="image/webp">
+  <link rel="preload" as="image" href="./assets/images/hero-vault-racks.webp" type="image/webp">
+  <link rel="preload" as="image" href="./assets/images/hero-gold-inspection.webp" type="image/webp">
+  <link rel="preload" as="image" href="./assets/images/hero-dubai-skyline.webp" type="image/webp">
+  <link rel="preload" as="image" href="./assets/images/hero-gold-pyramid.webp" type="image/webp">
   <link rel="preload" as="image" href="./assets/icons/logo.svg" type="image/svg+xml">
   <link rel="preload" as="script" href="./assets/js/main.js">
 
@@ -272,99 +276,144 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION (WebOps Executive 2-Column Standard)
-       ========================================================================== -->
-  <main id="main-content">
-    <section class="hero-executive-section" id="home" aria-label="Executive Bullion Trading Showcase">
-      <div class="hero-bg-layer"></div>
-      <div class="hero-bg-overlay"></div>
-      <div class="container hero-grid">
-        <!-- Left Column: Value Proposition & Institutional Trust -->
-        <div class="hero-content">
-          <span class="section-tag">Dubai Meydan Free Zone &bull; License 2651106.01</span>
-          <h1>Dubai’s Sovereign Benchmark in <span class="text-gradient-gold">Physical Precious Metals</span></h1>
-          <p class="hero-lead">
-            Licensed institutional bullion trading, certified LBMA &amp; Dubai Good Delivery fine gold bars, allocated custody, and cross-border settlement in the heart of the world's premier gold corridor.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              <span>Trade Desk Inquiry</span>
-            </a>
-            <a href="#live-rates" class="btn btn-secondary">
-              <span>Live Market Board</span>
-            </a>
-            <button type="button" class="btn btn-secondary open-verify-modal">
-              <span>Verify License</span>
-            </button>
+         HERO SECTION (Image Slider + Executive Terminal)
+         ========================================================================== -->
+    <main id="main-content">
+      <section class="hero-slider-section" id="home" aria-label="Executive Bullion Trading Showcase">
+        <!-- Hero Slider -->
+        <div class="hero-slider" role="region" aria-label="Hero image carousel">
+          <div class="slide active" style="background-image: url('./assets/images/hero-gold-bar-velvet.webp');">
+            <div class="slide-overlay"></div>
           </div>
-          <div class="hero-trust-metrics">
-            <div class="trust-metric-item">
-              <strong>999.9</strong>
-              <span>LBMA / DGD Purity</span>
-            </div>
-            <div class="trust-metric-item">
-              <strong>0% VAT</strong>
-              <span>UAE Reverse Charge</span>
-            </div>
-            <div class="trust-metric-item">
-              <strong>100%</strong>
-              <span>Allocated Custody</span>
-            </div>
+          <div class="slide" style="background-image: url('./assets/images/hero-vault-racks.webp');">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('./assets/images/hero-gold-inspection.webp');">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('./assets/images/hero-dubai-skyline.webp');">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('./assets/images/hero-gold-pyramid.webp');">
+            <div class="slide-overlay"></div>
+          </div>
+
+          <!-- Slider Navigation -->
+          <button type="button" class="slider-nav slider-prev" id="slidePrev" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button type="button" class="slider-nav slider-next" id="slideNext" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 6l6 6-6 6"/>
+            </svg>
+          </button>
+
+          <!-- Slider Dots -->
+          <div class="slider-dots" role="tablist" aria-label="Slide indicators">
+            <button type="button" class="dot-btn active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button type="button" class="dot-btn" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button type="button" class="dot-btn" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button type="button" class="dot-btn" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            <button type="button" class="dot-btn" data-index="4" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+          </div>
+
+          <!-- Slide Counter -->
+          <div class="slide-counter" aria-hidden="true">
+            <span id="slideCounter">01 / 05</span>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Live Bullion Terminal Widget -->
-        <div class="hero-terminal-card" aria-label="Live Bullion Spot Terminal">
-          <div class="terminal-header">
-            <div class="terminal-title">XAU/USD Interbank Terminal</div>
-            <div class="terminal-feed-status">
-              <span class="status-dot"></span>
-              <span>LIVE FEED</span>
+        <!-- Hero Content Overlay -->
+        <div class="hero-content-overlay">
+          <div class="container hero-grid">
+            <!-- Left Column: Value Proposition & Institutional Trust -->
+            <div class="hero-content">
+              <h1>Dubai's Sovereign Benchmark in <span class="text-gradient-gold">Physical Precious Metals</span></h1>
+              <p class="hero-lead">
+                Licensed institutional bullion trading, certified LBMA & Dubai Good Delivery fine gold bars, allocated custody, and cross-border settlement in the heart of the world's premier gold corridor.
+              </p>
+              <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                  <span>Trade Desk Inquiry</span>
+                </a>
+                <a href="#live-rates" class="btn btn-secondary">
+                  <span>Live Market Board</span>
+                </a>
+                <button type="button" class="btn btn-secondary open-verify-modal">
+                  <span>Verify License</span>
+                </button>
+              </div>
+              <div class="hero-trust-metrics">
+                <div class="trust-metric-item">
+                  <strong>999.9</strong>
+                  <span>LBMA / DGD Purity</span>
+                </div>
+                <div class="trust-metric-item">
+                  <strong>0% VAT</strong>
+                  <span>UAE Reverse Charge</span>
+                </div>
+                <div class="trust-metric-item">
+                  <strong>100%</strong>
+                  <span>Allocated Custody</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Interactive Live Bullion Terminal Widget -->
+            <div class="hero-terminal-card" aria-label="Live Bullion Spot Terminal">
+              <div class="terminal-header">
+                <div class="terminal-title">XAU/USD Interbank Terminal</div>
+                <div class="terminal-feed-status">
+                  <span class="status-dot"></span>
+                  <span>LIVE FEED</span>
+                </div>
+              </div>
+
+              <div class="terminal-main-metric">
+                <div class="terminal-symbol-label">
+                  <span>Spot Gold (1 Fine Troy Oz)</span>
+                  <span class="symbol-badge">999.9 Fine</span>
+                </div>
+                <div class="terminal-price-big" id="heroTerminalXauUsd">$4,182.00</div>
+                <div class="terminal-price-aed" id="heroTerminalXauAed">≈ AED 15,358.39 / oz t</div>
+              </div>
+
+              <div class="terminal-stats-grid">
+                <div class="stat-row">
+                  <span>24K Gold / Gram:</span>
+                  <span id="heroTerminal24k" class="text-gold">AED 493.78</span>
+                </div>
+                <div class="stat-row">
+                  <span>22K Gold / Gram:</span>
+                  <span id="heroTerminal22k">AED 452.63</span>
+                </div>
+                <div class="stat-row">
+                  <span>1kg Fine Cast Bar:</span>
+                  <span id="heroTerminal1kg" class="text-gold">AED 493,780</span>
+                </div>
+                <div class="stat-row">
+                  <span>Settlement Basis:</span>
+                  <span class="text-emerald">T+0 Physical</span>
+                </div>
+                <div class="stat-row">
+                  <span>Silver (XAG/USD):</span>
+                  <span id="heroTerminalXagUsd">$60.35</span>
+                </div>
+                <div class="stat-row">
+                  <span>Central Bank Peg:</span>
+                  <span>3.6725 AED</span>
+                </div>
+              </div>
+
+              <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Lock Indicative Rate &bull; Calculate</span>
+              </a>
             </div>
           </div>
-
-          <div class="terminal-main-metric">
-            <div class="terminal-symbol-label">
-              <span>Spot Gold (1 Fine Troy Oz)</span>
-              <span class="symbol-badge">999.9 Fine</span>
-            </div>
-            <div class="terminal-price-big" id="heroTerminalXauUsd">$4,182.00</div>
-            <div class="terminal-price-aed" id="heroTerminalXauAed">≈ AED 15,358.39 / oz t</div>
-          </div>
-
-          <div class="terminal-stats-grid">
-            <div class="stat-row">
-              <span>24K Gold / Gram:</span>
-              <span id="heroTerminal24k" class="text-gold">AED 493.78</span>
-            </div>
-            <div class="stat-row">
-              <span>22K Gold / Gram:</span>
-              <span id="heroTerminal22k">AED 452.63</span>
-            </div>
-            <div class="stat-row">
-              <span>1kg Fine Cast Bar:</span>
-              <span id="heroTerminal1kg" class="text-gold">AED 493,780</span>
-            </div>
-            <div class="stat-row">
-              <span>Settlement Basis:</span>
-              <span class="text-emerald">T+0 Physical</span>
-            </div>
-            <div class="stat-row">
-              <span>Silver (XAG/USD):</span>
-              <span id="heroTerminalXagUsd">$60.35</span>
-            </div>
-            <div class="stat-row">
-              <span>Central Bank Peg:</span>
-              <span>3.6725 AED</span>
-            </div>
-          </div>
-
-          <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">
-            <span>Lock Indicative Rate &bull; Calculate</span>
-          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ==========================================================================
          TRUST & ACCREDITATION PILLARS STRIP (Luxury Glass Cards)

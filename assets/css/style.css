@@ -525,40 +525,140 @@ header.site-header.scrolled {
 /* ==========================================================================
    HERO SECTION (WebOps Executive 2-Column Standard)
    ========================================================================== */
-.hero-executive-section {
+/* ==========================================================================
+   HERO SLIDER SECTION
+   ========================================================================== */
+.hero-slider-section {
   position: relative;
-  min-height: 580px;
-  padding: 60px 0 70px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background: #040907;
   overflow: hidden;
+  background: #040907;
 }
 
-.hero-bg-layer {
+.hero-slider {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./assets/images/hero-dubai-skyline.webp');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.22;
-  filter: contrast(1.1) brightness(0.85);
   z-index: 0;
 }
 
-.hero-bg-overlay {
+.slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
     linear-gradient(90deg, rgba(4, 11, 8, 0.95) 0%, rgba(4, 11, 8, 0.85) 55%, rgba(4, 11, 8, 0.6) 100%),
     linear-gradient(180deg, rgba(4, 11, 8, 0.4) 0%, rgba(4, 11, 8, 0.95) 100%);
-  z-index: 1;
+  z-index: 2;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(4, 11, 8, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold-400);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.slider-nav:hover {
+  background: var(--gold-500);
+  border-color: var(--gold-400);
+  color: var(--bg-deep);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-prev {
+  left: 32px;
+}
+
+.slider-next {
+  right: 32px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(212, 175, 55, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dot-btn.active {
+  background: var(--gold-400);
+  transform: scale(1.2);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
+}
+
+.dot-btn:hover:not(.active) {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+.slide-counter {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* Hero Content Overlay */
+.hero-content-overlay {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  padding: 60px 0 70px;
 }
 
 .hero-grid {
@@ -566,8 +666,13 @@ header.site-header.scrolled {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
   align-items: center;
-  position: relative;
-  z-index: 2;
+}
+
+/* Remove old hero-executive-section styles */
+.hero-executive-section,
+.hero-bg-layer,
+.hero-bg-overlay {
+  display: none !important;
 }
 
 .hero-content h1 {
@@ -2098,4 +2203,15 @@ footer.site-footer {
   .terminal-price-big { font-size: 2.1rem; }
   .hero-executive-section { padding: 40px 0 50px; min-height: auto; }
   .hero-trust-metrics { gap: 14px; }
+
+  /* Hero Slider Mobile */
+  .slider-nav {
+    width: 44px;
+    height: 44px;
+  }
+  .slider-prev { left: 12px; }
+  .slider-next { right: 12px; }
+  .slider-dots { bottom: 20px; gap: 8px; }
+  .dot-btn { width: 10px; height: 10px; }
+  .slide-counter { bottom: 20px; right: 16px; font-size: 0.75rem; }
 }

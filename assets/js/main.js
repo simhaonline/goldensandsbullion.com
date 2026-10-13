@@ -252,6 +252,13 @@ function initHeroSlider() {
     }, { passive: true });
   }
 
+  // Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') { prevSlide(); startAutoplay(); }
+    if (e.key === 'ArrowRight') { nextSlide(); startAutoplay(); }
+  });
+
   showSlide(0);
   startAutoplay();
 }
