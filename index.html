@@ -58,10 +58,17 @@
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Critical Resource Preloads -->
+  <link rel="preload" as="image" href="./assets/images/hero-gold-bar-velvet.webp" type="image/webp">
+  <link rel="preload" as="image" href="./assets/icons/logo.svg" type="image/svg+xml">
+  <link rel="preload" as="script" href="./assets/js/main.js">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./assets/css/style.css"></noscript>
 
   <!-- JSON-LD Structured Data: Organization & FinancialService -->
   <script type="application/ld+json">
@@ -228,36 +235,33 @@
     <div class="container nav-container">
       <!-- Clean, Elegant Standalone Islamic Gold Emblem + Brand Typography -->
       <a href="#home" class="brand-logo" aria-label="Golden Sands Bullion Trading - Home">
-        <img src="./assets/icons/logo.svg" alt="Golden Sands Bullion Emblem" class="brand-emblem" width="52" height="52">
+        <img src="./assets/icons/logo.svg" alt="Golden Sands Bullion Emblem" class="brand-emblem" width="44" height="44">
         <div class="brand-text">
           <span class="brand-title">GOLDEN SANDS</span>
           <span class="brand-subtitle">BULLION TRADING <span class="fz-pill">L.L.C-FZ</span></span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Menu -->
+      <!-- Desktop Navigation Menu (Streamlined, Uncrowded) -->
       <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
-        <a href="#home" class="nav-link active">Overview</a>
-        <a href="#live-rates" class="nav-link">Live Rates (XAU)</a>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#live-rates" class="nav-link">Live Rates</a>
         <a href="#products" class="nav-link">Products</a>
         <a href="#services" class="nav-link">Services</a>
-        <a href="#compliance" class="nav-link">Regulatory</a>
-        <a href="#leadership" class="nav-link">Leadership</a>
-        <a href="#calculator" class="nav-link">Calculator</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#compliance" class="nav-link">Governance</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Header Action CTAs -->
+      <!-- Header Action CTAs (Balanced, Compact, Zero Overflow) -->
       <div class="nav-actions">
         <button type="button" class="install-pwa-btn" aria-label="Install App on Device">
-          <span>📲 Install App</span>
+          <span>📲 Install</span>
         </button>
-        <a href="https://wa.me/971585689509?text=Hello%20Golden%20Sands%20Bullion,%20I%20would%20like%20to%20inquire%20about%20physical%20precious%20metals%20trading." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-          <span>WhatsApp Desk</span>
+        <a href="https://wa.me/971585689509?text=Hello%20Golden%20Sands%20Bullion,%20I%20would%20like%20to%20inquire%20about%20physical%20precious%20metals%20trading." class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Trading Desk" title="WhatsApp Trading Desk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.544 1.777.785 2.796.785 3.183 0 5.767-2.586 5.767-5.766 0-3.18-2.584-5.771-5.767-5.771zm3.392 8.234c-.143.402-.83.743-1.144.787-.312.045-.715.064-2.316-.599-1.928-.797-3.17-2.766-3.266-2.894-.096-.128-.778-1.034-.778-1.972 0-.938.491-1.399.666-1.591.176-.192.383-.24.512-.24.128 0 .256.002.368.008.117.006.275-.045.431.33.16.384.544 1.327.592 1.423.048.096.08.208.016.336-.064.128-.096.208-.192.32-.096.112-.202.25-.288.336-.096.096-.196.2-.084.392.112.192.497.82 1.066 1.327.734.654 1.353.856 1.545.952.192.096.304.08.416-.048.112-.128.48-1.121.608-1.281.128-.16.256-.134.432-.069.176.065 1.12.528 1.312.624.192.096.32.144.368.224.048.08.048.464-.096.866z"/></svg>
         </a>
         <a href="#contact" class="btn btn-primary btn-sm">
-          <span>Request Quote</span>
+          <span>Trade Desk</span>
         </a>
         <!-- Mobile Toggle Hamburger -->
         <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -270,141 +274,129 @@
   </header>
 
   <!-- ==========================================================================
-       HERO CAROUSEL / SLIDER SECTION
+       HERO SECTION (WebOps Executive 2-Column Standard)
        ========================================================================== -->
   <main id="main-content">
-    <section class="hero-slider-section" id="home" aria-label="Featured Bullion Showcase">
-      <div class="slider-container">
-
-        <!-- Slide 1: Dubai Gateway -->
-        <article class="slide active" data-slide="0">
-          <div class="slide-backdrop" style="background-image: url('./assets/images/hero-dubai-skyline.jpg');"></div>
-          <div class="slide-overlay"></div>
-          <div class="container">
-            <div class="slide-content-wrap">
-              <span class="slide-tag">Dubai Meydan Free Zone • Regulated Entity</span>
-              <h1 class="slide-title">Dubai’s Sovereign Benchmark in <span class="text-gradient-gold">Physical Precious Metals</span></h1>
-              <p class="slide-description">
-                Licensed under Meydan Free Zone (License No. 2651106.01), Golden Sands Bullion Trading L.L.C-FZ delivers institutional-grade trading, global liquidity, and sovereign security in the heart of the world's premier gold corridor.
-              </p>
-              <div class="slide-actions">
-                <a href="#live-rates" class="btn btn-primary">View Live XAU/USD Rates</a>
-                <a href="#compliance" class="btn btn-secondary open-verify-modal">Verify Credentials</a>
-              </div>
+    <section class="hero-executive-section" id="home" aria-label="Executive Bullion Trading Showcase">
+      <div class="hero-bg-layer"></div>
+      <div class="hero-bg-overlay"></div>
+      <div class="container hero-grid">
+        <!-- Left Column: Value Proposition & Institutional Trust -->
+        <div class="hero-content">
+          <span class="section-tag">Dubai Meydan Free Zone &bull; License 2651106.01</span>
+          <h1>Dubai’s Sovereign Benchmark in <span class="text-gradient-gold">Physical Precious Metals</span></h1>
+          <p class="hero-lead">
+            Licensed institutional bullion trading, certified LBMA &amp; Dubai Good Delivery fine gold bars, allocated custody, and cross-border settlement in the heart of the world's premier gold corridor.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              <span>Trade Desk Inquiry</span>
+            </a>
+            <a href="#live-rates" class="btn btn-secondary">
+              <span>Live Market Board</span>
+            </a>
+            <button type="button" class="btn btn-secondary open-verify-modal">
+              <span>Verify License</span>
+            </button>
+          </div>
+          <div class="hero-trust-metrics">
+            <div class="trust-metric-item">
+              <strong>999.9</strong>
+              <span>LBMA / DGD Purity</span>
+            </div>
+            <div class="trust-metric-item">
+              <strong>0% VAT</strong>
+              <span>UAE Reverse Charge</span>
+            </div>
+            <div class="trust-metric-item">
+              <strong>AE-1216587</strong>
+              <span>Dubai Customs Mirsal</span>
+            </div>
+            <div class="trust-metric-item">
+              <strong>100%</strong>
+              <span>Allocated Custody</span>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Slide 2: Vault Custody -->
-        <article class="slide" data-slide="1">
-          <div class="slide-backdrop" style="background-image: url('./assets/images/hero-vault-racks.png');"></div>
-          <div class="slide-overlay"></div>
-          <div class="container">
-            <div class="slide-content-wrap">
-              <span class="slide-tag">Bank-Grade Allocated Custody</span>
-              <h2 class="slide-title">Ultra-Secure Vaulting &amp; <span class="text-gradient-gold">Segregated Physical Storage</span></h2>
-              <p class="slide-description">
-                Store fine gold and silver within Dubai's state-of-the-art insured bullion vaults. Guaranteed 100% physical backing, segregated allocations, 24/7 armed surveillance, and uncompromised discretion.
-              </p>
-              <div class="slide-actions">
-                <a href="#services" class="btn btn-primary">Custody Solutions</a>
-                <a href="#calculator" class="btn btn-secondary">Bullion Calculator</a>
-              </div>
+        <!-- Right Column: Interactive Live Bullion Terminal Widget -->
+        <div class="hero-terminal-card" aria-label="Live Bullion Spot Terminal">
+          <div class="terminal-header">
+            <div class="terminal-title">XAU/USD Interbank Terminal</div>
+            <div class="terminal-feed-status">
+              <span class="status-dot"></span>
+              <span>LIVE FEED</span>
             </div>
           </div>
-        </article>
 
-        <!-- Slide 3: 999.9 Fine Gold Assaying -->
-        <article class="slide" data-slide="2">
-          <div class="slide-backdrop" style="background-image: url('./assets/images/hero-gold-inspection.png');"></div>
-          <div class="slide-overlay"></div>
-          <div class="container">
-            <div class="slide-content-wrap">
-              <span class="slide-tag">Dubai Good Delivery &amp; LBMA Quality</span>
-              <h2 class="slide-title">Certified 999.9 Purity &amp; <span class="text-gradient-gold">International Assay Standards</span></h2>
-              <p class="slide-description">
-                Every bar is verified with precision XRF spectrometry and fire assay protocols. Sourced exclusively from internationally accredited LBMA and Dubai Good Delivery refiners with serialized certificates of authenticity.
-              </p>
-              <div class="slide-actions">
-                <a href="#products" class="btn btn-primary">Browse Bullion Bars</a>
-                <a href="#contact" class="btn btn-secondary">Trading Desk</a>
-              </div>
+          <div class="terminal-main-metric">
+            <div class="terminal-symbol-label">
+              <span>Spot Gold (1 Fine Troy Oz)</span>
+              <span class="symbol-badge">999.9 Fine</span>
+            </div>
+            <div class="terminal-price-big" id="heroTerminalXauUsd">$4,182.00</div>
+            <div class="terminal-price-aed" id="heroTerminalXauAed">≈ AED 15,358.39 / oz t</div>
+          </div>
+
+          <div class="terminal-stats-grid">
+            <div class="stat-row">
+              <span>24K Gold / Gram:</span>
+              <span id="heroTerminal24k" class="text-gold">AED 493.78</span>
+            </div>
+            <div class="stat-row">
+              <span>22K Gold / Gram:</span>
+              <span id="heroTerminal22k">AED 452.63</span>
+            </div>
+            <div class="stat-row">
+              <span>1kg Fine Cast Bar:</span>
+              <span id="heroTerminal1kg" class="text-gold">AED 493,780</span>
+            </div>
+            <div class="stat-row">
+              <span>Settlement Basis:</span>
+              <span class="text-emerald">T+0 Physical</span>
+            </div>
+            <div class="stat-row">
+              <span>Silver (XAG/USD):</span>
+              <span id="heroTerminalXagUsd">$60.35</span>
+            </div>
+            <div class="stat-row">
+              <span>Central Bank Peg:</span>
+              <span>3.6725 AED</span>
             </div>
           </div>
-        </article>
 
-        <!-- Slide 4: Bespoke Liquidity & Settlement -->
-        <article class="slide" data-slide="3">
-          <div class="slide-backdrop" style="background-image: url('./assets/images/hero-gold-bar-velvet.png');"></div>
-          <div class="slide-overlay"></div>
-          <div class="container">
-            <div class="slide-content-wrap">
-              <span class="slide-tag">Dubai Customs Code: AE-1216587</span>
-              <h2 class="slide-title">Bespoke Wholesale Liquidity &amp; <span class="text-gradient-gold">Global Cross-Border Settlement</span></h2>
-              <p class="slide-description">
-                Direct Mirsal II customs clearance for international import and export. Competitive spreads, immediate wire settlement, and dedicated account executive coverage for institutions and family offices.
-              </p>
-              <div class="slide-actions">
-                <a href="#contact" class="btn btn-primary">Open Institutional Account</a>
-                <a href="#live-rates" class="btn btn-secondary">Check Live Pricing</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Slider Controls & Indicator Dots -->
-      <div class="slider-controls">
-        <div class="container slider-controls-inner">
-          <div class="slider-dots">
-            <button type="button" class="dot-btn active" data-index="0" aria-label="Go to Slide 1"></button>
-            <button type="button" class="dot-btn" data-index="1" aria-label="Go to Slide 2"></button>
-            <button type="button" class="dot-btn" data-index="2" aria-label="Go to Slide 3"></button>
-            <button type="button" class="dot-btn" data-index="3" aria-label="Go to Slide 4"></button>
-          </div>
-          <div class="slider-arrows">
-            <span id="slideCounter" class="slider-counter">01 / 04</span>
-            <button type="button" class="arrow-btn" id="slidePrev" aria-label="Previous Slide">‹</button>
-            <button type="button" class="arrow-btn" id="slideNext" aria-label="Next Slide">›</button>
-          </div>
+          <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <span>Lock Indicative Rate &bull; Calculate</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         TRUST & ACCREDITATION PILLARS STRIP
+         TRUST & ACCREDITATION PILLARS STRIP (Luxury Glass Cards)
          ========================================================================== -->
     <section class="trust-strip" aria-label="Regulatory Accreditations">
       <div class="container">
         <div class="trust-grid">
-          <div class="trust-item">
-            <div class="trust-icon">🏛️</div>
-            <div class="trust-text">
-              <h3>Meydan Free Zone Regulated</h3>
-              <p>License No. 2651106.01 | Formation No. 2651106. Activity 4752.77 Non-Manufactured Precious Metals.</p>
-            </div>
+          <div class="trust-card-item">
+            <div class="trust-card-icon">🏛️</div>
+            <div class="trust-card-title">Meydan Free Zone Regulated</div>
+            <div class="trust-card-desc">License No. 2651106.01 | Formation 2651106. Activity 4752.77 Non-Manufactured Precious Metals.</div>
           </div>
-          <div class="trust-item">
-            <div class="trust-icon">🛃</div>
-            <div class="trust-text">
-              <h3>Dubai Customs Approved</h3>
-              <p>Mirsal Business Code: AE-1216587 (Reference 1-212664466733) for expedited global clearance.</p>
-            </div>
+          <div class="trust-card-item">
+            <div class="trust-card-icon">🛃</div>
+            <div class="trust-card-title">Dubai Customs Approved</div>
+            <div class="trust-card-desc">Mirsal Business Code: AE-1216587 (Ref 1-212664466733) for expedited global clearance.</div>
           </div>
-          <div class="trust-item">
-            <div class="trust-icon">📋</div>
-            <div class="trust-text">
-              <h3>Federal Tax Authority</h3>
-              <p>TRN: 105588382900001 with 0% reverse-charge VAT compliance on pure investment bullion.</p>
-            </div>
+          <div class="trust-card-item">
+            <div class="trust-card-icon">📋</div>
+            <div class="trust-card-title">Federal Tax Authority</div>
+            <div class="trust-card-desc">TRN: 105588382900001 with 0% reverse-charge VAT compliance on pure investment bullion.</div>
           </div>
-          <div class="trust-item">
-            <div class="trust-icon">🛡️</div>
-            <div class="trust-text">
-              <h3>999.9 Purity Guarantee</h3>
-              <p>Allocated physical delivery with accredited assay certificates &amp; serial number verification.</p>
-            </div>
+          <div class="trust-card-item">
+            <div class="trust-card-icon">🛡️</div>
+            <div class="trust-card-title">999.9 Purity Guarantee</div>
+            <div class="trust-card-desc">Allocated physical delivery with accredited assay certificates &amp; serial number verification.</div>
           </div>
         </div>
       </div>
@@ -719,7 +711,10 @@
         <div class="about-grid">
           <!-- Left Visual Column -->
           <div class="about-visuals">
-            <img src="./assets/images/credit-suisse-boardroom.jpg" alt="Golden Sands Bullion Executive Boardroom Dubai" class="about-img-main" width="600" height="420" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/credit-suisse-boardroom.webp" type="image/webp">
+              <img src="./assets/images/credit-suisse-boardroom.jpg" alt="Golden Sands Bullion Executive Boardroom Dubai" class="about-img-main" width="600" height="420" loading="lazy">
+            </picture>
             <div class="about-floating-card">
               <h4>Meydan FZ</h4>
               <p>Fully Licensed Under License 2651106.01. Registered in the heart of Dubai's sovereign business corridor.</p>
@@ -792,7 +787,10 @@
           <!-- Product 1: 1kg Gold Bar -->
           <article class="product-card" data-category="gold-bars">
             <div class="product-img-wrap">
-              <img src="./assets/images/credit-suisse-1kg.jpg" alt="1 Kilogram Pure Gold Bar 999.9" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/credit-suisse-1kg.webp" type="image/webp">
+                <img src="./assets/images/credit-suisse-1kg.jpg" alt="1 Kilogram Pure Gold Bar 999.9" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Institutional Flagship</span>
             </div>
             <div class="product-body">
@@ -815,7 +813,10 @@
           <!-- Product 2: 100g Minted Gold Bar -->
           <article class="product-card" data-category="gold-bars">
             <div class="product-img-wrap">
-              <img src="./assets/images/gold-medallion-bar.png" alt="100 Grams Minted Gold Bar" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/gold-medallion-bar.webp" type="image/webp">
+                <img src="./assets/images/gold-medallion-bar.png" alt="100 Grams Minted Gold Bar" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Private Wealth</span>
             </div>
             <div class="product-body">
@@ -838,7 +839,10 @@
           <!-- Product 3: 10 Tola Bar -->
           <article class="product-card" data-category="gold-bars">
             <div class="product-img-wrap">
-              <img src="./assets/images/hero-gold-pyramid.jpg" alt="Ten Tola Gold Bar 999.0 Dubai Standard" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/hero-gold-pyramid.webp" type="image/webp">
+                <img src="./assets/images/hero-gold-pyramid.jpg" alt="Ten Tola Gold Bar 999.0 Dubai Standard" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Dubai Classic (TT Bar)</span>
             </div>
             <div class="product-body">
@@ -861,7 +865,10 @@
           <!-- Product 4: Sovereign Minted Coins -->
           <article class="product-card" data-category="coins">
             <div class="product-img-wrap">
-              <img src="./assets/images/gold-coins-bars.jpg" alt="1 Ounce Sovereign Gold Bullion Coins" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/gold-coins-bars.webp" type="image/webp">
+                <img src="./assets/images/gold-coins-bars.jpg" alt="1 Ounce Sovereign Gold Bullion Coins" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Sovereign Legal Tender</span>
             </div>
             <div class="product-body">
@@ -884,7 +891,10 @@
           <!-- Product 5: 1kg Silver Bar -->
           <article class="product-card" data-category="silver">
             <div class="product-img-wrap">
-              <img src="./assets/images/gold-assay-tongs.jpg" alt="1 Kilogram Fine Silver Bullion Bar" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/gold-assay-tongs.webp" type="image/webp">
+                <img src="./assets/images/gold-assay-tongs.jpg" alt="1 Kilogram Fine Silver Bullion Bar" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Precious White Metal</span>
             </div>
             <div class="product-body">
@@ -907,7 +917,10 @@
           <!-- Product 6: Wholesale Palletized Consignments -->
           <article class="product-card" data-category="gold-bars">
             <div class="product-img-wrap">
-              <img src="./assets/images/gold-bars-pallet.jpg" alt="Institutional Wholesale Gold Bullion Consignment" width="400" height="240" loading="lazy">
+              <picture>
+                <source srcset="./assets/images/gold-bars-pallet.webp" type="image/webp">
+                <img src="./assets/images/gold-bars-pallet.jpg" alt="Institutional Wholesale Gold Bullion Consignment" width="400" height="240" loading="lazy">
+              </picture>
               <span class="product-badge">Wholesale Lot</span>
             </div>
             <div class="product-body">
@@ -1165,7 +1178,10 @@
         <div class="leader-card">
           <!-- Portrait Wrap -->
           <div class="leader-portrait-wrap">
-            <img src="./assets/images/suhail-alameri-portrait.png" alt="Suhail Salem Ahmed Amer Alameri - Manager & Shareholder" width="460" height="580" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/suhail-alameri-portrait.webp" type="image/webp">
+              <img src="./assets/images/suhail-alameri-portrait.png" alt="Suhail Salem Ahmed Amer Alameri - Manager &amp; Shareholder" width="460" height="580" loading="lazy">
+            </picture>
             <div class="leader-portrait-overlay"></div>
           </div>
 
@@ -1207,25 +1223,37 @@
 
         <div class="gallery-grid">
           <div class="gallery-item">
-            <img src="./assets/images/vault-security-corridor.jpg" alt="Bank Grade High-Security Bullion Corridor" width="300" height="240" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/vault-security-corridor.webp" type="image/webp">
+              <img src="./assets/images/vault-security-corridor.jpg" alt="Bank Grade High-Security Bullion Corridor" width="300" height="240" loading="lazy">
+            </picture>
             <div class="gallery-overlay">
               <span class="gallery-caption">Biometric Security Vault Corridor</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="./assets/images/hero-vault-racks.png" alt="Automated Bullion Vault Racks Dubai" width="300" height="240" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/hero-vault-racks.webp" type="image/webp">
+              <img src="./assets/images/hero-vault-racks.png" alt="Automated Bullion Vault Racks Dubai" width="300" height="240" loading="lazy">
+            </picture>
             <div class="gallery-overlay">
               <span class="gallery-caption">Segregated Allocated Storage Racks</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="./assets/images/gold-assay-tongs.jpg" alt="Metallurgical Gold Assay Lab" width="300" height="240" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/gold-assay-tongs.webp" type="image/webp">
+              <img src="./assets/images/gold-assay-tongs.jpg" alt="Metallurgical Gold Assay Lab" width="300" height="240" loading="lazy">
+            </picture>
             <div class="gallery-overlay">
               <span class="gallery-caption">Metallurgical Testing &amp; Assay</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="./assets/images/bullion-trading-floor.png" alt="Golden Sands Institutional Trading Floor" width="300" height="240" loading="lazy">
+            <picture>
+              <source srcset="./assets/images/bullion-trading-floor.webp" type="image/webp">
+              <img src="./assets/images/bullion-trading-floor.png" alt="Golden Sands Institutional Trading Floor" width="300" height="240" loading="lazy">
+            </picture>
             <div class="gallery-overlay">
               <span class="gallery-caption">Dubai Institutional Trading Floor</span>
             </div>
@@ -1460,7 +1488,7 @@
         <!-- Col 1: Brand & Regulatory Summary -->
         <div class="footer-brand">
           <div class="brand-logo" style="margin-bottom: 16px;">
-            <img src="./assets/icons/logo.svg" alt="Golden Sands Bullion Emblem" class="brand-emblem" width="52" height="52">
+            <img src="./assets/icons/logo.svg" alt="Golden Sands Bullion Emblem" class="brand-emblem" width="44" height="44">
             <div class="brand-text">
               <span class="brand-title">GOLDEN SANDS</span>
               <span class="brand-subtitle">BULLION TRADING <span class="fz-pill">L.L.C-FZ</span></span>
@@ -1619,6 +1647,6 @@
   <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top of page">↑</button>
 
   <!-- Core Application Script -->
-  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

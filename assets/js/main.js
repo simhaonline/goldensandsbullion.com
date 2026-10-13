@@ -3,7 +3,33 @@
  * Core Client-side Application Script
  * Live XAU/USD Spot Integration & Royal Islamic Theme
  * Dubai • Meydan Free Zone
+ * Performance optimized v2.0.0
  */
+
+// Performance: Preload critical resources on first interaction
+function preloadCriticalResources() {
+  // Preload fonts and critical images on first user interaction
+  const preloadLinks = [
+    { href: './assets/images/hero-gold-bar-velvet.webp', as: 'image', type: 'image/webp' },
+    { href: './assets/icons/logo.svg', as: 'image', type: 'image/svg+xml' }
+  ];
+  
+  preloadLinks.forEach(({ href, as, type }) => {
+    if (!document.querySelector(`link[href="${href}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = as;
+      link.href = href;
+      if (type) link.type = type;
+      document.head.appendChild(link);
+    }
+  });
+}
+
+// Remove preload listener after first interaction
+['click', 'keydown', 'touchstart'].forEach(evt => {
+  window.addEventListener(evt, preloadCriticalResources, { once: true, passive: true });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   initPWA();
@@ -16,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initVerifyModal();
   initBackToTop();
+  initPerformanceOptimizations();
 });
 
 /* ==========================================================================
@@ -359,7 +386,33 @@ function initLiveXauRatesEngine() {
     const silverOzEl = document.getElementById('rateSilverOz');
     if (silverOzEl) silverOzEl.textContent = formatCurr(rates.silverOzAed, activeCurrency);
 
-    // 6. Timestamp
+    // 6. Hero Terminal Card Elements
+    const hTermXau = document.getElementById('heroTerminalXauUsd');
+    if (hTermXau) {
+      hTermXau.textContent = `$${rates.goldOzUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+    const hTermAed = document.getElementById('heroTerminalXauAed');
+    if (hTermAed) {
+      hTermAed.textContent = `≈ AED ${rates.goldOzAed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / oz t`;
+    }
+    const hTerm24k = document.getElementById('heroTerminal24k');
+    if (hTerm24k) {
+      hTerm24k.textContent = `AED ${rates.gold24kAed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+    const hTerm22k = document.getElementById('heroTerminal22k');
+    if (hTerm22k) {
+      hTerm22k.textContent = `AED ${rates.gold22kAed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+    const hTerm1kg = document.getElementById('heroTerminal1kg');
+    if (hTerm1kg) {
+      hTerm1kg.textContent = `AED ${rates.goldKgAed.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+    }
+    const hTermXag = document.getElementById('heroTerminalXagUsd');
+    if (hTermXag) {
+      hTermXag.textContent = `$${rates.silverOzUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+
+    // 7. Timestamp
     const timeEl = document.getElementById('ratesUpdateTime');
     if (timeEl) {
       timeEl.textContent = liveState.lastUpdated.toLocaleTimeString('en-GB', {
@@ -784,4 +837,164 @@ function showToast(message) {
   setTimeout(() => {
     toast.style.display = 'none';
   }, 4500);
+}
+
+/* ==========================================================================
+   11. PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+function initPerformanceOptimizations() {
+  // Lazy load images with IntersectionObserver
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          if (img.dataset.srcset) {
+            img.srcset = img.dataset.srcset;
+            img.removeAttribute('data-srcset');
+          }
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.01
+    });
+
+    // Observe all images with data-src
+    document.querySelectorAll('img[data-src], img[data-srcset]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+
+  // Add loading="lazy" to all images that don't have it
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    // Don't lazy load hero/above-fold images
+    const rect = img.getBoundingClientRect();
+    if (rect.top > window.innerHeight || img.closest('.hero')) {
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    }
+  });
+
+  // Debounce scroll handlers for better performance
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Apply debouncing to existing scroll handlers
+  const originalAddEventListener = EventTarget.prototype.addEventListener;
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (type === 'scroll' && typeof listener === 'function') {
+      const debouncedListener = debounce(listener, 16); // ~60fps
+      return originalAddEventListener.call(this, type, debouncedListener, options);
+    }
+    return originalAddEventListener.call(this, type, listener, options);
+  };
+
+  // Preconnect to critical origins
+  const criticalOrigins = [
+    'https://fonts.googleapis.com',
+    'https://fonts.gstatic.com',
+    'https://api.gold-api.com',
+    'https://api.binance.com',
+    'https://api.coingecko.com'
+  ];
+
+  criticalOrigins.forEach(origin => {
+    if (!document.querySelector(`link[rel="preconnect"][href="${origin}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = origin;
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    }
+  });
+
+  // Enable browser's native lazy loading for iframes
+  document.querySelectorAll('iframe').forEach(iframe => {
+    if (!iframe.loading) {
+      iframe.loading = 'lazy';
+    }
+  });
+
+  // Service Worker update notification
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      console.log('Service Worker updated - app will reload for latest version');
+      showToast('New version available! Refresh to update.');
+    });
+  }
+
+  // Web Vitals monitoring (lightweight)
+  if ('PerformanceObserver' in window) {
+    try {
+      // LCP - Largest Contentful Paint
+      const lcpObserver = new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        console.log('LCP:', Math.round(lastEntry.startTime), 'ms');
+      });
+      lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+
+      // FID - First Input Delay
+      const fidObserver = new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        entries.forEach(entry => {
+          console.log('FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
+        });
+      });
+      fidObserver.observe({ type: 'first-input', buffered: true });
+
+      // CLS - Cumulative Layout Shift
+      let clsValue = 0;
+      const clsObserver = new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        entries.forEach(entry => {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        });
+        console.log('CLS:', clsValue.toFixed(4));
+      });
+      clsObserver.observe({ type: 'layout-shift', buffered: true });
+    } catch (e) {
+      // PerformanceObserver not fully supported
+    }
+  }
+
+  // Resource hints for navigation
+  document.addEventListener('mouseover', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link && link.href && link.href.startsWith(window.location.origin)) {
+      // Prefetch on hover for faster navigation
+      if (!document.querySelector(`link[rel="prefetch"][href="${link.href}"]`)) {
+        const prefetchLink = document.createElement('link');
+        prefetchLink.rel = 'prefetch';
+        prefetchLink.href = link.href;
+        document.head.appendChild(prefetchLink);
+      }
+    }
+  }, { passive: true });
+
+  // Reduce motion for users who prefer it
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReducedMotion.matches) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
 }

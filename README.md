@@ -68,30 +68,33 @@ All business information, regulatory accreditations, and licensing details are v
   * Pure, beveled 3D gold bullion ingot bar silhouette at the center.
   * **Zero mixed-in text strings** inside the SVG image for clean scalability at all resolutions.
 
-### 4. Interactive Hero Slider & Visual Showcase
-* Fullscreen luxury responsive carousel with:
-  * 4 bespoke high-resolution slides (`hero-dubai-skyline.jpg`, `hero-vault-racks.png`, `hero-gold-inspection.png`, `hero-gold-bar-velvet.png`).
-  * Autoplay (6-second interval) with pause-on-hover.
-  * Touch swipe gestures on mobile devices.
-  * Progress indicator dots, slide counter (`01 / 04`), and navigation controls.
+### 4. WebOps Executive 2-Column Hero & Live Terminal
+* **Left Column**: Authority badges (Meydan Free Zone License 2651106.01), refined executive typography, institutional value propositions, and core trust metrics (999.9 Purity, 0% VAT, Customs Code AE-1216587, 100% Allocated Custody).
+* **Right Column**: Interactive live bullion terminal widget streaming real-time XAU/USD prices, AED conversion (fixed 3.6725 peg), per-gram 24K and 22K rates, and 1kg bar valuations with 1-click calculator integration.
+* **Streamlined Header**: Balanced 5-core navigation (`Live Rates`, `Products`, `Services`, `Governance`, `Contact`) with dedicated WhatsApp direct desk and Trade Desk inquiry actions engineered for zero horizontal wrapping on any resolution.
 
-### 5. Physical Bullion Portfolio
+### 5. High-Performance WebOps Optimization
+* **Asset Footprint Reduction**: Reduced total image asset payload from >13 MB down to ~800 KB (over 94% compression) using progressive WebP format with lossless alpha and `<picture>` fallbacks.
+* **Instant First Contentful Paint (FCP)**: Streamlined Service Worker precache shell eliminating network queue blocking.
+* **Fluid Responsiveness**: Engineered for seamless scaling from 360px ultra-compact mobile up to 4K executive displays without typography cutoff or button overflow.
+
+### 6. Physical Bullion Portfolio
 * Filterable inventory tabs: **All Bullion**, **Gold Bars**, **Sovereign Coins**, and **Fine Silver**.
 * Detailed technical specification tables (Weight, Fineness, Refiner Hallmark, Certificate, and Security Packaging).
 * "Request Term Sheet" triggers that pre-populate the trading desk inquiry form.
 
-### 6. Institutional Services & Compliance Center
+### 7. Institutional Services & Compliance Center
 * **6 Institutional Services**: Wholesale Physical Trading, Allocated Vault Custody, Metallurgical Assaying & Verification, Dubai Customs Mirsal Clearance, Instant Buyback Liquidity, and Sovereign Wealth Advisory.
 * **Official Verification Modal**: Interactive modal displaying certified Free Zone and tax registry data.
 * **Executive Leadership**: Executive profile and message from Manager & Shareholder Suhail Salem Ahmed Amer Alameri.
 
-### 7. Progressive Web App (PWA) Offline Architecture
+### 8. Progressive Web App (PWA) Offline Architecture
 * **Web App Manifest**: Full `manifest.webmanifest` and `manifest.json` enabling installation on iOS, Android, Windows, and macOS.
-* **Service Worker (`sw.js`)**: Pre-caches core application shell, vector assets, and critical images; provides stale-while-revalidate caching and offline fallback handling.
+* **Service Worker (`sw.js`)**: Pre-caches core application shell, vector assets, and critical icons; provides stale-while-revalidate caching and offline fallback handling.
 * **In-App Install Prompts**: Interactive "Install App" triggers in both the header and footer.
 * **Offline Connectivity Banner**: Real-time browser status banner informing users when navigating without internet.
 
-### 8. Comprehensive SEO & Structured Data
+### 9. Comprehensive SEO & Structured Data
 * **JSON-LD Schema.org Graphs**:
   * `FinancialService` and `LocalBusiness` with full corporate identity, coordinates, address, license identifier, tax ID, and founder.
   * `Organization` and `WebSite`.
