@@ -66,37 +66,11 @@ function initPWA() {
       } else {
         offlineBanner.classList.add('active');
       }
-    }
-  }
+      }
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);
   updateOnlineStatus();
-
-  // Install PWA Prompt
-  let deferredPrompt;
-  const installBtns = document.querySelectorAll('.install-pwa-btn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtns.forEach(btn => {
-      btn.style.display = 'inline-flex';
-      btn.addEventListener('click', async () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
-          console.log(`User response to install: ${outcome}`);
-          deferredPrompt = null;
-          btn.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  window.addEventListener('appinstalled', () => {
-    console.log('Golden Sands Bullion app installed successfully.');
-    installBtns.forEach(btn => btn.style.display = 'none');
-  });
+}
 }
 
 /* ==========================================================================
@@ -810,9 +784,6 @@ function initVerifyModal() {
   });
 }
 
-/* ==========================================================================
-   10. BACK TO TOP & TOAST UTILITY
-   ========================================================================== */
 function initBackToTop() {
   const btt = document.getElementById('backToTop');
   if (!btt) return;
